@@ -4,7 +4,7 @@ import './Navbar.scss';
 function Navbar(props) {
 	return (
 		<nav className='nav-container'>
-			<h1 className='logo'>My Website</h1>
+			<h1 className='logo'>CAS</h1>
 			<ul>
 				<li>
 					<a href='#'>Home</a>

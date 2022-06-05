@@ -1,0 +1,27 @@
+@import '../../index.scss';
+
+.showcase {
+	background-color: $primary-color;
+	color: white;
+	height: 700px;
+	padding: 0 30px;
+	margin: 0 auto;
+	overflow: auto;
+
+	&-container {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	&-content {
+		margin-top: 50px;
+		width: 400px;
+	}
+
+	img {
+		height: 400px;
+		width: 400px;
+	}
+}
