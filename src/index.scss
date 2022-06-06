@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap');
 
 $font-family: 'Open Sans', sans-serif;
-$text-color: #f4f4f4;
-$primary-color: rgb(253, 99, 99);
-$secondary-color: rgb(32, 32, 32);
+$primary-color: rgb(109, 255, 218);
+$secondary-color: rgb(36, 36, 36);
+$tertiary-color: aliceblue;
+
+//Set text color based on bg color
+@function set-text-color($color) {
+	@if (lightness($color) > 60) {
+		@return rgb(32, 32, 32);
+	} @else {
+		@return aliceblue;
+	}
+}
 
 .btn-options {
 	display: flex;
@@ -11,26 +20,56 @@ $secondary-color: rgb(32, 32, 32);
 	justify-content: left;
 	height: 70px;
 	width: 100%;
-	margin-top: 20px;
+	gap: 30px;
 }
+
 .btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 44px;
-	width: 120px;
+	width: 135px;
+	font-weight: 600;
 	text-decoration: none;
 	background-color: transparent;
-	// border: 2px solid $secondary-color;
 	border-radius: 15px;
-	color: $text-color;
-	background-color: $secondary-color;
-	&-primary {
-		margin-right: 30px;
+	letter-spacing: 0.8px;
+
+	&:focus {
+		transform: translateY(2px);
+		transition: 0.2s ease-out;
 	}
-	&:hover {
-		background-color: white;
-		color: $secondary-color;
-		transition: 0.3s ease-out;
+
+	&-primary {
+		// background-color: lighten($primary-color, 10%);
+		background-color: transparent;
+		border: 1.5px solid set-text-color($primary-color);
+		color: set-text-color($primary-color);
+		box-shadow: 5px 5px 2px;
+	}
+
+	&-secondary {
+		background-color: $secondary-color;
+		border: 1.5px solid $secondary-color;
+		color: set-text-color($secondary-color);
+		box-shadow: 5px 5px 2px darken($primary-color, 40%);
+	}
+
+	&-primary:hover {
+		background-color: $tertiary-color;
+		color: set-text-color($tertiary-color);
+		transition: 0.2s ease-out;
+	}
+
+	&-secondary:hover {
+		background-color: $tertiary-color;
+		border-color: $tertiary-color;
+		color: set-text-color($tertiary-color);
+	}
+}
+
+@media (max-width: 980px) {
+	.btn-options {
+		justify-content: center;
 	}
 }

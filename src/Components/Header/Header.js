@@ -23,7 +23,9 @@ function Header(props) {
 						</a>
 					</div>
 				</div>
-				<img src={headerphoto} alt='failed to load' />
+				<div className='showcase-image-container'>
+					<img src={headerphoto} alt='failed to load' />
+				</div>
 			</div>
 		</div>
 	);
